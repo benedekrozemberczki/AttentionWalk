@@ -22,7 +22,7 @@ def parameter_parser():
 
     parser.add_argument("--dimensions",
                         type = int,
-                        default = 128,
+                        default = 32,
 	                help = "Number of dimensions. Default is 128.")
 
     parser.add_argument("--epochs",
@@ -37,12 +37,12 @@ def parameter_parser():
 
     parser.add_argument("--lamb",
                         type = float,
-                        default = 0.1,
+                        default = 10.0,
 	                help = "Regularization parameter. Default is 0.1.")
 
     parser.add_argument("--learning-rate",
                         type = float,
-                        default = 0.001,
+                        default = 0.01,
 	                help = "Gradient descent. Default is 0.001.")
 
     parser.add_argument("--geometric",
