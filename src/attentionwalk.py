@@ -24,7 +24,7 @@ class AttentionWalkLayer(torch.nn.Module):
 
     def define_weights(self):
         """
-        Define the parameters.
+        Define the model weights.
         """
         self.left_factors = torch.nn.Parameter(torch.Tensor(self.shapes[1], int(self.args.dimensions/2)))
         self.right_factors = torch.nn.Parameter(torch.Tensor(int(self.args.dimensions/2),self.shapes[1]))
@@ -45,7 +45,6 @@ class AttentionWalkLayer(torch.nn.Module):
         :param adjacency_opposite: No-edge indicator matrix.
         :return loss: Loss being minimized.
         """
-        
         self.attention_probs = torch.nn.functional.softmax(self.attention, dim = 0)
         weighted_target_tensor = weighted_target_tensor * self.attention_probs.unsqueeze(1).expand_as(weighted_target_tensor)
         weighted_target_matrix = torch.sum(weighted_target_tensor, dim=0).view(self.shapes[1],self.shapes[2])
@@ -56,7 +55,6 @@ class AttentionWalkLayer(torch.nn.Module):
         loss = loss_on_matrices +  loss_on_regularization
         return loss
         
-
 class AttentionWalkTrainer(object):
     '''
     '''
