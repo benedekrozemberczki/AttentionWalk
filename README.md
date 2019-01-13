@@ -38,22 +38,18 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 
 ```
   --edge-path         STR   Input graph path.     Default is `input/chameleon_edges.csv`.
-  --embedding-path    STR   Embedding path.       Default is `output/chameleon_attention_walk.csv`.
-  --attention-path    STR   Embedding path.       Default is `output/chameleon_attention_walk.csv`.
+  --embedding-path    STR   Embedding path.       Default is `output/chameleon_AW_embedding.csv`.
+  --attention-path    STR   Embedding path.       Default is `output/chameleon_AW_attention.csv`.
 ```
 
 #### Model options
 
 ```
-  --dimensions              INT       Number of embeding dimensions.         Default is 128.
-  --budget                  INT       Sampling budget.                       Default is 10^5.
-  --node-noise-samples      INT       Number of noise sampled nodes.         Default is 5.
-  --feature-noise-samples   INT       Number of noise sampled features.      Default is 5.
-  --batch-size              INT       Number of source nodes per batch.      Default is 32.
-  --walk-length             INT       Truncated random walk length.          Default is 80.  
-  --number-of-walks         INT       Number of walks per source node.       Default is 10.
-  --window-size             INT       Skip-gram window size.                 Default is 5.
-  --learning-rate           FLOAT     Learning rate value.                   Default is 0.001.
+  --dimensions              INT       Number of embeding dimensions.        Default is 128.
+  --epochs                  INT       Number of training epochs.            Default is 200.
+  --window-size             INT       Skip-gram window size.                Default is 5.
+  --learning-rate           FLOAT     Learning rate value.                  Default is 0.01.
+  --beta                    FLOAT     Regularization parameter.             Default is 0.1.
 ```
 
 ### Examples
@@ -84,6 +80,5 @@ python src/main.py --window-size 20
 Creating an embedding of an other dataset the `Twitch Brasilians`. Saving the outputs under custom file names.
 
 ```
-python src/main.py --edge-path input/ptbr_edges.csv --embedding-path output/ptbr_features.json --attention-path output/ptbr_sine.csv
+python src/main.py --edge-path input/ptbr_edges.csv --embedding-path output/ptbr_AW_embedding.csv --attention-path output/ptbr_AW_attention.csv
 ```
-
