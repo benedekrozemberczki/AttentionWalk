@@ -37,9 +37,9 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 #### Input and output options
 
 ```
-  --edge-path         STR   Input graph path.         Default is `input/chameleon_edges.csv`.
-  --embedding-path    STR   Embedding path.           Default is `output/chameleon_attention_walk.csv`.
-  --attention-path    STR   Embedding path.           Default is `output/chameleon_attention_walk.csv`.
+  --edge-path         STR   Input graph path.     Default is `input/chameleon_edges.csv`.
+  --embedding-path    STR   Embedding path.       Default is `output/chameleon_attention_walk.csv`.
+  --attention-path    STR   Embedding path.       Default is `output/chameleon_attention_walk.csv`.
 ```
 
 #### Model options
@@ -81,9 +81,9 @@ Creating an Attention Walk embedding of the default dataset with a higher window
 python src/main.py --window-size 20
 ```
 
-Creating an embedding of an other dense structured dataset the `Twitch Brasilians`. Saving the output in a custom folder.
+Creating an embedding of an other dataset the `Twitch Brasilians`. Saving the outputs under custom file names.
 
 ```
-python src/main.py --edge-path input/ptbr_edges.csv --feature-path input/ptbr_features.json --output-path output/ptbr_sine.csv
+python src/main.py --edge-path input/ptbr_edges.csv --embedding-path output/ptbr_features.json --attention-path output/ptbr_sine.csv
 ```
 
