@@ -24,7 +24,7 @@ def tab_printer(args):
     args = vars(args)
     keys = sorted(args.keys())
     t = Texttable() 
-    t.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(),args[k]] for k in keys])
+    t.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(), args[k]] for k in keys])
     print(t.draw())
 
 def feature_calculator(args, graph):
@@ -36,8 +36,8 @@ def feature_calculator(args, graph):
     """
     ind = range(len(graph.nodes()))
     degs = [1.0/graph.degree(node) for node in graph.nodes()]
-    adjacency_matrix = sparse.csr_matrix(nx.adjacency_matrix(graph),dtype=np.float32)
-    degs = sparse.csr_matrix(sparse.coo_matrix((degs,(ind,ind)),shape=adjacency_matrix.shape,dtype=np.float32))
+    adjacency_matrix = sparse.csr_matrix(nx.adjacency_matrix(graph), dtype=np.float32)
+    degs = sparse.csr_matrix(sparse.coo_matrix((degs, (ind,ind)), shape=adjacency_matrix.shape, dtype=np.float32))
     normalized_adjacency_matrix = degs.dot(adjacency_matrix)
     target_matrices = [normalized_adjacency_matrix.todense()]
     powered_A = normalized_adjacency_matrix
@@ -55,6 +55,6 @@ def adjacency_opposite_calculator(graph):
     :param graph: NetworkX object.
     :return adjacency_matrix_opposite: Indicator matrix.
     """
-    adjacency_matrix = sparse.csr_matrix(nx.adjacency_matrix(graph),dtype=np.float32).todense()
-    adjacency_matrix_opposite = np.ones(adjacency_matrix.shape)-adjacency_matrix
+    adjacency_matrix = sparse.csr_matrix(nx.adjacency_matrix(graph), dtype=np.float32).todense()
+    adjacency_matrix_opposite = np.ones(adjacency_matrix.shape) - adjacency_matrix
     return adjacency_matrix_opposite
