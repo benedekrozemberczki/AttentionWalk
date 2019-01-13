@@ -27,13 +27,12 @@ def tab_printer(args):
     t.add_rows([["Parameter", "Value"]] +  [[k.replace("_"," ").capitalize(),args[k]] for k in keys])
     print(t.draw())
 
-
 def feature_calculator(args, graph):
     """
-    
-    :args :
-    :param graph:
-    :return :
+    Calculating the feature tensor.
+    :param args: Arguments object.
+    :param graph: NetworkX graph.
+    :return target_matrices: Target tensor.
     """
     ind = range(len(graph.nodes()))
     degs = [1.0/graph.degree(node) for node in graph.nodes()]
