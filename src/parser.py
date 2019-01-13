@@ -9,7 +9,6 @@ def parameter_parser():
 
     parser = argparse.ArgumentParser(description = "Run Attention Walk.")
 
-
     parser.add_argument("--edge-path",
                         nargs = "?",
                         default = "./input/chameleon_edges.csv",
@@ -27,7 +26,7 @@ def parameter_parser():
 
     parser.add_argument("--dimensions",
                         type = int,
-                        default = 8,
+                        default = 128,
 	                help = "Number of dimensions. Default is 128.")
 
     parser.add_argument("--epochs",
@@ -38,16 +37,16 @@ def parameter_parser():
     parser.add_argument("--window-size",
                         type = int,
                         default = 5,
-	                help = "Skip-gram window size. Default is 20.")
+	                help = "Skip-gram window size. Default is 5.")
 
     parser.add_argument("--beta",
                         type = float,
-                        default = 0.01,
+                        default = 0.1,
 	                help = "Regularization parameter. Default is 0.1.")
 
     parser.add_argument("--learning-rate",
                         type = float,
-                        default = 0.1,
-	                help = "Gradient descent. Default is 0.001.")
+                        default = 0.01,
+	                help = "Gradient descent learning rate. Default is 0.01.")
     
     return parser.parse_args()
