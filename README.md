@@ -37,8 +37,9 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 #### Input and output options
 
 ```
-  --edge-path    STR     Input graph path.           Default is `input/chameleon_edges.csv`.
-  --output-path  STR     Embedding path.             Default is `output/chameleon_attention_walk.csv`.
+  --edge-path         STR   Input graph path.         Default is `input/chameleon_edges.csv`.
+  --embedding-path    STR   Embedding path.           Default is `output/chameleon_attention_walk.csv`.
+  --attention-path    STR   Embedding path.           Default is `output/chameleon_attention_walk.csv`.
 ```
 
 #### Model options
@@ -59,25 +60,25 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 
 The following commands learn a graph embedding and write the embedding to disk. The node representations are ordered by the ID.
 
-Creating a SINE embedding of the default dataset with the default hyperparameter settings. Saving the embedding at the default path.
+Creating a Attention Walk embedding of the default dataset with the default hyperparameter settings. Saving the embedding at the default path.
 
 ```
 python src/main.py
 ```
 <p align="center">
-<img style="float: center;" src="sine_run_example.jpg">
+<img style="float: center;" src="attention_walk_run_example.jpg">
 </p>
 
-Creating a SINE embedding of the default dataset with 256 dimensions.
+Creating an Attention Walk embedding of the default dataset with 256 dimensions.
 
 ```
 python src/main.py --dimensions 256
 ```
 
-Creating a SINE embedding of the default dataset with a low sampling budget.
+Creating an Attention Walk embedding of the default dataset with a higher window size.
 
 ```
-python src/main.py --budget 1000
+python src/main.py --window-size 20
 ```
 
 Creating an embedding of an other dense structured dataset the `Twitch Brasilians`. Saving the output in a custom folder.
