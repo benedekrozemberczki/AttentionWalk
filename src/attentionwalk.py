@@ -11,6 +11,11 @@ class AttentionWalkLayer(torch.nn.Module):
     For details see: https://papers.nips.cc/paper/8131-watch-your-step-learning-node-embeddings-via-graph-attention
     """
     def __init__(self, args, shapes):
+        """
+        Setting up the layer.
+        :param args: Arguments object.
+        :param shapes: Shape of the target tensor.
+        """
         super(AttentionWalkLayer, self).__init__()
         self.args = args
         self.shapes = shapes
@@ -34,15 +39,19 @@ class AttentionWalkLayer(torch.nn.Module):
         torch.nn.init.xavier_normal_(self.attention)
 
     def forward(self, weighted_target_tensor, adjacency_opposite):
+        """
+        Doing a forward propagation pass.
+        :param weighted_target_tensor: Target tensor factorized.
+        :param adjacency_opposite: No-edge indicator matrix.
+        :return loss: Loss being minimized.
+        """
         
         self.attention_probs = torch.nn.functional.softmax(self.attention, dim = 0)
-
         weighted_target_tensor = weighted_target_tensor * self.attention_probs.unsqueeze(1).expand_as(weighted_target_tensor)
         weighted_target_matrix = torch.sum(weighted_target_tensor, dim=0).view(self.shapes[1],self.shapes[2])
         loss_on_target = - weighted_target_matrix * torch.log(torch.sigmoid(torch.mm(self.left_factors, self.right_factors)))
         loss_opposite = - adjacency_opposite * torch.log(1-torch.sigmoid(torch.mm(self.left_factors, self.right_factors)))
         loss_on_matrices = (loss_on_target + loss_opposite).norm(1)
-        #loss_on_matrices = torch.mean(torch.abs(loss_on_target + loss_opposite))
         loss_on_regularization = self.args.beta * (self.attention.norm(2)**2)
         loss = loss_on_matrices +  loss_on_regularization
         return loss
