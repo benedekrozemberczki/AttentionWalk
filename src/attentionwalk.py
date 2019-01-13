@@ -94,10 +94,16 @@ class AttentionWalkTrainer(object):
             self.epochs.set_description("Attention Walk (Loss=%g)" % round(loss.item(),4))
 
     def save_model(self):
+        """
+        Saving the embedding and attention vector.
+        """
         self.save_embedding()
         self.save_attention()
 
     def save_embedding(self):
+        """
+        Saving the embedding matrices as one unified embedding.
+        """
         print("\nSaving the model.\n")
         left = self.model.left_factors.detach().numpy()
         right = self.model.right_factors.detach().numpy().T
@@ -108,6 +114,9 @@ class AttentionWalkTrainer(object):
         embedding.to_csv(self.args.embedding_path, index = None)
 
     def save_attention(self):
+        """
+        Saving the attention vector.
+        """
         attention = self.model.attention_probs.detach().numpy()
         indices = np.array([range(self.args.window_size)]).reshape(-1,1)
         attention = np.concatenate([indices, attention], axis = 1)
