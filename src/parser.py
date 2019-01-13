@@ -15,40 +15,39 @@ def parameter_parser():
                         default = "./input/chameleon_edges.csv",
 	                help = "Edge list csv.")
 
-    parser.add_argument("--output-path",
+    parser.add_argument("--embedding-path",
                         nargs = "?",
-                        default = "./output/chameleon_attention_walk.csv",
+                        default = "./output/chameleon_AW_embedding.csv",
+	                help = "Target embedding csv.")
+
+    parser.add_argument("--attention-path",
+                        nargs = "?",
+                        default = "./output/chameleon_AW_attention.csv",
 	                help = "Target embedding csv.")
 
     parser.add_argument("--dimensions",
                         type = int,
-                        default = 32,
+                        default = 8,
 	                help = "Number of dimensions. Default is 128.")
 
     parser.add_argument("--epochs",
                         type = int,
-                        default = 100,
-	                help = "Number of gradient descent iterations. Default is 100.")
+                        default = 200,
+	                help = "Number of gradient descent iterations. Default is 200.")
 
     parser.add_argument("--window-size",
                         type = int,
                         default = 5,
-	                help = "Skip-gram window size. Default is 5.")
+	                help = "Skip-gram window size. Default is 20.")
 
-    parser.add_argument("--lamb",
+    parser.add_argument("--beta",
                         type = float,
-                        default = 10.0,
+                        default = 0.01,
 	                help = "Regularization parameter. Default is 0.1.")
 
     parser.add_argument("--learning-rate",
                         type = float,
-                        default = 0.01,
+                        default = 0.1,
 	                help = "Gradient descent. Default is 0.001.")
-
-    parser.add_argument("--geometric",
-                        dest="geometric",
-                        action="store_true")
-
-    parser.set_defaults(geometric=False)
     
     return parser.parse_args()

@@ -11,6 +11,7 @@ def main():
     model = AttentionWalkTrainer(args)
     model.fit()
     model.save_embedding()
+    model.save_attention()
 
 if __name__ =="__main__":
     main()

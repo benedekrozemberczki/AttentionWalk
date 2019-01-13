@@ -45,7 +45,8 @@ def feature_calculator(args, graph):
     if args.window_size > 1:
         for power in tqdm(range(args.window_size-1), desc = "Adjacency matrix powers"):
             powered_A = powered_A.dot(normalized_adjacency_matrix)
-            target_matrices.append(powered_A.todense())
+            to_add = powered_A.todense()
+            target_matrices.append(to_add)
     target_matrices = np.array(target_matrices)
     return target_matrices
 
