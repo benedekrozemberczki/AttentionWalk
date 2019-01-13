@@ -6,6 +6,10 @@ from tqdm import tqdm, trange
 from utils import read_graph, feature_calculator, adjacency_opposite_calculator
 
 class AttentionWalkLayer(torch.nn.Module):
+    """
+    Attention Walk Layer.
+    For details see: https://papers.nips.cc/paper/8131-watch-your-step-learning-node-embeddings-via-graph-attention
+    """
     def __init__(self, args, shapes):
         super(AttentionWalkLayer, self).__init__()
         self.args = args
