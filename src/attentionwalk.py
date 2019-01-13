@@ -57,13 +57,21 @@ class AttentionWalkLayer(torch.nn.Module):
         
 class AttentionWalkTrainer(object):
     '''
+    Class for training the AttentionWalk model.
     '''
     def __init__(self, args):
+        """
+        Initializing the training object.
+        :param args: Arguments object.
+        """
         self.args = args
         self.graph = read_graph(self.args.edge_path)
         self.initialize_model_and_features()
 
     def initialize_model_and_features(self):
+        """
+        Creating data tensors and factroization model.
+        """
         self.target_tensor = feature_calculator(self.args, self.graph)
         self.target_tensor = torch.FloatTensor(self.target_tensor)
         self.adjacency_opposite = adjacency_opposite_calculator(self.graph)
@@ -71,6 +79,9 @@ class AttentionWalkTrainer(object):
         self.model = AttentionWalkLayer(self.args, self.target_tensor.shape)
 
     def fit(self):
+        """
+        Fitting the model
+        """
         print("\nTraining the model.\n")
         self.model.train()
         self.optimizer = torch.optim.Adam(self.model.parameters(), lr=self.args.learning_rate)
