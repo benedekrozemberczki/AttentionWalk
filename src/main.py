@@ -10,8 +10,7 @@ def main():
     tab_printer(args)
     model = AttentionWalkTrainer(args)
     model.fit()
-    model.save_embedding()
-    model.save_attention()
+    model.save_model()
 
 if __name__ =="__main__":
     main()
