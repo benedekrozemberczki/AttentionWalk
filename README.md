@@ -56,7 +56,7 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 
 The following commands learn a graph embedding and write the embedding to disk. The node representations are ordered by the ID.
 
-Creating a Attention Walk embedding of the default dataset with the default hyperparameter settings. Saving the embedding at the default path.
+Creating an Attention Walk embedding of the default dataset with the standard hyperparameter settings. Saving this embedding at the default path.
 
 ```
 python src/main.py
@@ -66,7 +66,6 @@ python src/main.py
 </p>
 
 Creating an Attention Walk embedding of the default dataset with 256 dimensions.
-
 ```
 python src/main.py --dimensions 256
 ```
@@ -77,7 +76,7 @@ Creating an Attention Walk embedding of the default dataset with a higher window
 python src/main.py --window-size 20
 ```
 
-Creating an embedding of an other dataset the `Twitch Brasilians`. Saving the outputs under custom file names.
+Creating an embedding of another dataset the `Twitch Brasilians`. Saving the outputs under custom file names.
 
 ```
 python src/main.py --edge-path input/ptbr_edges.csv --embedding-path output/ptbr_AW_embedding.csv --attention-path output/ptbr_AW_attention.csv
