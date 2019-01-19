@@ -39,17 +39,17 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 ```
   --edge-path         STR   Input graph path.     Default is `input/chameleon_edges.csv`.
   --embedding-path    STR   Embedding path.       Default is `output/chameleon_AW_embedding.csv`.
-  --attention-path    STR   Embedding path.       Default is `output/chameleon_AW_attention.csv`.
+  --attention-path    STR   Attention path.       Default is `output/chameleon_AW_attention.csv`.
 ```
 
 #### Model options
 
 ```
-  --dimensions              INT       Number of embeding dimensions.        Default is 128.
-  --epochs                  INT       Number of training epochs.            Default is 200.
-  --window-size             INT       Skip-gram window size.                Default is 5.
-  --learning-rate           FLOAT     Learning rate value.                  Default is 0.01.
-  --beta                    FLOAT     Regularization parameter.             Default is 0.1.
+  --dimensions           INT       Number of embeding dimensions.      Default is 128.
+  --epochs               INT       Number of training epochs.          Default is 200.
+  --window-size          INT       Skip-gram window size.              Default is 5.
+  --learning-rate        FLOAT     Learning rate value.                Default is 0.01.
+  --beta                 FLOAT     Regularization parameter.           Default is 0.1.
 ```
 
 ### Examples
