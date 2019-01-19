@@ -22,7 +22,7 @@ def parameter_parser():
     parser.add_argument("--attention-path",
                         nargs = "?",
                         default = "./output/chameleon_AW_attention.csv",
-	                help = "Target embedding csv.")
+	                help = "Attention vector csv.")
 
     parser.add_argument("--dimensions",
                         type = int,
