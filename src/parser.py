@@ -11,17 +11,17 @@ def parameter_parser():
 
     parser.add_argument("--edge-path",
                         nargs = "?",
-                        default = "./input/chameleon_edges.csv",
+                        default = "./input/cora_edges.csv",
 	                help = "Edge list csv.")
 
     parser.add_argument("--embedding-path",
                         nargs = "?",
-                        default = "./output/chameleon_AW_embedding.csv",
+                        default = "./output/cora_AW_embedding.csv",
 	                help = "Target embedding csv.")
 
     parser.add_argument("--attention-path",
                         nargs = "?",
-                        default = "./output/chameleon_AW_attention.csv",
+                        default = "./output/cora_AW_attention.csv",
 	                help = "Attention vector csv.")
 
     parser.add_argument("--dimensions",
@@ -39,10 +39,20 @@ def parameter_parser():
                         default = 5,
 	                help = "Skip-gram window size. Default is 5.")
 
+    parser.add_argument("--num-of-walks",
+                        type = int,
+                        default = 80,
+	                help = "Number of random walks. Default is 80.")
+
     parser.add_argument("--beta",
                         type = float,
-                        default = 0.1,
-	                help = "Regularization parameter. Default is 0.1.")
+                        default = 0.5,
+	                help = "Regularization parameter. Default is 0.5.")
+
+    parser.add_argument("--gamma",
+                        type = float,
+                        default = 0.5,
+	                help = "Regularization parameter. Default is 0.5.")
 
     parser.add_argument("--learning-rate",
                         type = float,
