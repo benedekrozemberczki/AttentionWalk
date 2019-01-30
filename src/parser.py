@@ -11,7 +11,7 @@ def parameter_parser():
 
     parser.add_argument("--edge-path",
                         nargs = "?",
-                        default = "./input/cora_edges.csv",
+                        default = "./input/chameleon_edges.csv",
 	                help = "Edge list csv.")
 
     parser.add_argument("--embedding-path",
