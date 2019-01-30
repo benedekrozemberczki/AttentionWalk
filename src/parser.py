@@ -16,12 +16,12 @@ def parameter_parser():
 
     parser.add_argument("--embedding-path",
                         nargs = "?",
-                        default = "./output/cora_AW_embedding.csv",
+                        default = "./output/chameleon_AW_embedding.csv",
 	                help = "Target embedding csv.")
 
     parser.add_argument("--attention-path",
                         nargs = "?",
-                        default = "./output/cora_AW_attention.csv",
+                        default = "./output/chameleon_AW_attention.csv",
 	                help = "Attention vector csv.")
 
     parser.add_argument("--dimensions",
