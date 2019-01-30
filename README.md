@@ -49,7 +49,7 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
   --epochs               INT       Number of training epochs.          Default is 200.
   --window-size          INT       Skip-gram window size.              Default is 5.
   --learning-rate        FLOAT     Learning rate value.                Default is 0.01.
-  --beta                 FLOAT     Regularization parameter.           Default is 0.1.
+  --beta                 FLOAT     Regularization parameter.           Default is 0.5.
 ```
 
 ### Examples
