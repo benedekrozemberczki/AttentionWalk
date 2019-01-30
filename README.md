@@ -50,6 +50,8 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
   --window-size          INT       Skip-gram window size.                Default is 5.
   --learning-rate        FLOAT     Learning rate value.                  Default is 0.01.
   --beta                 FLOAT     Attention regularization parameter.   Default is 0.5.
+  --gamma                FLOAT     Embedding regularization parameter.   Default is 0.5.
+  --num-of-walks         INT       Number of walks per source node.      Default is 80.
 ```
 
 ### Examples
