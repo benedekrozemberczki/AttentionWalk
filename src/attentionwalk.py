@@ -34,9 +34,9 @@ class AttentionWalkLayer(torch.nn.Module):
         """
         Initializing the weights.
         """
-        torch.nn.init.xavier_normal_(self.left_factors)
-        torch.nn.init.xavier_normal_(self.right_factors)
-        torch.nn.init.xavier_normal_(self.attention)
+        torch.nn.init.uniform_(self.left_factors,-0.01,0.01)
+        torch.nn.init.uniform_(self.right_factors,-0.01,0.01)
+        torch.nn.init.uniform_(self.attention,-0.01,0.01)
 
     def forward(self, weighted_target_tensor, adjacency_opposite):
         """
@@ -50,9 +50,10 @@ class AttentionWalkLayer(torch.nn.Module):
         weighted_target_matrix = torch.sum(weighted_target_tensor, dim=0).view(self.shapes[1],self.shapes[2])
         loss_on_target = - weighted_target_matrix * torch.log(torch.sigmoid(torch.mm(self.left_factors, self.right_factors)))
         loss_opposite = - adjacency_opposite * torch.log(1-torch.sigmoid(torch.mm(self.left_factors, self.right_factors)))
-        loss_on_matrices = (loss_on_target + loss_opposite).norm(1)
+        loss_on_matrices = torch.mean(torch.abs(self.args.num_of_walks*weighted_target_matrix.shape[0]*loss_on_target + loss_opposite))
+        norms = torch.mean(torch.abs(self.left_factors))+torch.mean(torch.abs(self.right_factors))
         loss_on_regularization = self.args.beta * (self.attention.norm(2)**2)
-        loss = loss_on_matrices +  loss_on_regularization
+        loss = loss_on_matrices +  loss_on_regularization + self.args.gamma*norms
         return loss
         
 class AttentionWalkTrainer(object):
