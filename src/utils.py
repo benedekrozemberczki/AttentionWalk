@@ -35,10 +35,13 @@ def feature_calculator(args, graph):
     :param graph: NetworkX graph.
     :return target_matrices: Target tensor.
     """
-    ind = range(len(graph.nodes()))
-    degs = [1.0/graph.degree(node) for node in graph.nodes()]
-    adjacency_matrix = sparse.csr_matrix(nx.adjacency_matrix(graph), dtype=np.float32)
-    degs = sparse.csr_matrix(sparse.coo_matrix((degs, (ind,ind)), shape=adjacency_matrix.shape, dtype=np.float32))
+    index_1 = [edge[0] for edge in graph.edges()]
+    index_2 = [edge[1] for edge in graph.edges()]
+    values = [1 for edge in graph.edges()]
+    node_count = max(max(index_1)+1,max(index_2)+1)
+    adjacency_matrix = sparse.coo_matrix((values, (index_1,index_2)),shape=(node_count,node_count),dtype=np.float32)
+    degrees = adjacency_matrix.sum(axis=0)[0].tolist()
+    degs = sparse.diags(degrees, [0])
     normalized_adjacency_matrix = degs.dot(adjacency_matrix)
     target_matrices = [normalized_adjacency_matrix.todense()]
     powered_A = normalized_adjacency_matrix
