@@ -1,4 +1,6 @@
-Attention Walk
+Attention Walk 	<img src="https://img.shields.io/badge/stars-90+-blue.svg"/>
+        <img src="https://img.shields.io/badge/forks-10+-blue.svg"/>
+	<img src="https://img.shields.io/badge/license-MIT-blue.svg"/>
 ============================================
 A PyTorch Implementation of "Watch Your Step: Learning Node Embeddings via Graph Attention" (NIPS 2018).
 <div style="text-align:center"><img src ="attentionwalk.jpg" ,width=720/></div>
