@@ -14,6 +14,8 @@ This repository provides an implementation of Attention Walk as described in the
 > NIPS, 2018.
 > [[Paper]](http://papers.nips.cc/paper/8131-watch-your-step-learning-node-embeddings-via-graph-attention)
 
+The original Tensorflow implementation is available [[here]](https://github.com/google-research/google-research/tree/master/graph_embedding/watch_your_step).
+
 ### Requirements
 
 The codebase is implemented in Python 3.5.2. package versions used for development are just below.
