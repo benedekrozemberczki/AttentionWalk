@@ -35,9 +35,9 @@ def feature_calculator(args, graph):
     :param graph: NetworkX graph.
     :return target_matrices: Target tensor.
     """
-    index_1 = [edge[0] for edge in graph.edges()]
-    index_2 = [edge[1] for edge in graph.edges()]
-    values = [1 for edge in graph.edges()]
+    index_1 = [edge[0] for edge in graph.edges()] + [edge[1] for edge in graph.edges()]
+    index_2 = [edge[1] for edge in graph.edges()] + [edge[0] for edge in graph.edges()]
+    values = [1 for edge in index_1]
     node_count = max(max(index_1)+1,max(index_2)+1)
     adjacency_matrix = sparse.coo_matrix((values, (index_1,index_2)),shape=(node_count,node_count),dtype=np.float32)
     degrees = adjacency_matrix.sum(axis=0)[0].tolist()
