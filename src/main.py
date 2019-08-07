@@ -1,6 +1,6 @@
-from attentionwalk import AttentionWalkTrainer
 from parser import parameter_parser
 from utils import read_graph, tab_printer
+from attentionwalk import AttentionWalkTrainer
 
 def main():
     """
