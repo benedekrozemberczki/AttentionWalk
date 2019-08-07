@@ -6,7 +6,6 @@ def parameter_parser():
     The default hyperparameters give a good quality representation without grid search.
     Representations are sorted by node ID.
     """
-
     parser = argparse.ArgumentParser(description = "Run Attention Walk.")
 
     parser.add_argument("--edge-path",
