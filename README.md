@@ -31,9 +31,9 @@ torch             1.0.0.
 torchvision       0.2.1
 ```
 ### Datasets
-
+<p align="justify">
 The code takes an input graph in a csv file. Every row indicates an edge between two nodes separated by a comma. The first row is a header. Nodes should be indexed starting with 0. Sample graphs for the `Twitch Brasilians` and `Wikipedia Chameleons` are included in the  `input/` directory. 
-
+</p>
 ### Options
 
 Learning of the embedding is handled by the `src/main.py` script which provides the following command line arguments.
@@ -59,11 +59,12 @@ Learning of the embedding is handled by the `src/main.py` script which provides 
 ```
 
 ### Examples
-
+<p align="justify">
 The following commands learn a graph embedding and write the embedding to disk. The node representations are ordered by the ID.
-
+</p>
+<p align="justify">
 Creating an Attention Walk embedding of the default dataset with the standard hyperparameter settings. Saving this embedding at the default path.
-
+</p>
 ```
 python src/main.py
 ```
