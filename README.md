@@ -27,8 +27,8 @@ pandas            0.23.4
 texttable         1.5.0
 scipy             1.1.0
 argparse          1.1.0
-torch             1.0.0.
-torchvision       0.2.1
+torch             1.1.0
+torchvision       0.3.0
 ```
 ### Datasets
 <p align="justify">
