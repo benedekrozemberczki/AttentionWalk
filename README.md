@@ -1,4 +1,4 @@
-Attention Walk ![GitHub stars](https://img.shields.io/github/stars/benedekrozemberczki/AttentionWalk.svg?style=plastic) ![GitHub forks](https://img.shields.io/github/forks/benedekrozemberczki/AttentionWalk.svg?color=blue&style=plastic) ![License](https://img.shields.io/github/license/benedekrozemberczki/AttentionWalk.svg?color=blue&style=plastic) [![Arxiv](https://img.shields.io/badge/ArXiv-1710.09599-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/1710.09599)
+Attention Walk ![License](https://img.shields.io/github/license/benedekrozemberczki/AttentionWalk.svg?color=blue&style=plastic) [![Arxiv](https://img.shields.io/badge/ArXiv-1710.09599-orange.svg?color=blue&style=plastic)](https://arxiv.org/abs/1710.09599)
 ============================================
 A PyTorch Implementation of "Watch Your Step: Learning Node Embeddings via Graph Attention" (NIPS 2018).
 <div style="text-align:center"><img src ="attentionwalk.jpg" ,width=720/></div>
