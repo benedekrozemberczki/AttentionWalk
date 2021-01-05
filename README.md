@@ -90,3 +90,8 @@ Creating an embedding of another dataset the `Twitch Brasilians`. Saving the out
 ```
 python src/main.py --edge-path input/ptbr_edges.csv --embedding-path output/ptbr_AW_embedding.csv --attention-path output/ptbr_AW_attention.csv
 ```
+--------------------------------------------------------------------------------
+
+**License**
+
+- [GNU License](https://github.com/benedekrozemberczki/AttentionWalk/blob/master/LICENSE)
