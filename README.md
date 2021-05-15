@@ -95,3 +95,5 @@ python src/main.py --edge-path input/ptbr_edges.csv --embedding-path output/ptbr
 **License**
 
 - [GNU License](https://github.com/benedekrozemberczki/AttentionWalk/blob/master/LICENSE)
+
+--------------------------------------------------------------------------------
