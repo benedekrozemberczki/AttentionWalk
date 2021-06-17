@@ -47,7 +47,7 @@ def feature_calculator(args, graph):
 
     degrees = adjacency_matrix.sum(axis=0)[0].tolist()
     degs = sparse.diags(degrees, [0])
-    normalized_adjacency_matrix = degs.dot(adjacency_matrix)
+    normalized_adjacency_matrix = degs.power(-1/2).dot(adjacency_matrix).dot(degs.power(-1/2))
     target_matrices = [normalized_adjacency_matrix.todense()]
     powered_A = normalized_adjacency_matrix
     if args.window_size > 1:
